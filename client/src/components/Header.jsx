@@ -1,12 +1,9 @@
-import React from 'react';
-import './components 2/Header.css';
-
 function Header() {
   return (
     <div className="header">
-      <h2>Af-Text</h2>
+      <h1>Af-Text</h1>
+      {/* Profile icon, notifications, etc. */}
     </div>
   );
 }
-
 export default Header;

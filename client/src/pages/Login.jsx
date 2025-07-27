@@ -1,54 +1,48 @@
-import React, { useState } from "react";
+import React from 'react';
+import '../components/Login.css';
 
-const Login = () => {
-    const [form, setForm] = useState({ username: "", password: "" });
+function Login() {
+const [username, setUsername] = React.useState('');
+const [password, setPassword] = React.useState('');
 
-    const handleChange = (e) => {
-        setForm({ ...form, [e.target.name]: e.target.value });
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Handle login logic here (e.g., API call)
-        console.log("Logging in with:", form);
-    };
-
-    return (
-        <div style={{ maxWidth: 400, margin: "auto", padding: 20 }}>
-            <h2>Login</h2>
-            <form onSubmit={handleSubmit}>
-                <div style={{ marginBottom: 10 }}>
-                    <label>
-                        Username:
-                        <input
-                            type="text"
-                            name="username"
-                            value={form.username}
-                            onChange={handleChange}
-                            required
-                            style={{ width: "100%", padding: 8 }}
-                        />
-                    </label>
-                </div>
-                <div style={{ marginBottom: 10 }}>
-                    <label>
-                        Password:
-                        <input
-                            type="password"
-                            name="password"
-                            value={form.password}
-                            onChange={handleChange}
-                            required
-                            style={{ width: "100%", padding: 8 }}
-                        />
-                    </label>
-                </div>
-                <button type="submit" style={{ padding: "8px 16px" }}>
-                    Login
-                </button>
-            </form>
-        </div>
-    );
+const handleSubmit = (e) => {
+    e.preventDefault();
+    // Fake login details
+    if (username === "testuser" && password === "12345678") {
+        // Simulate navigation to next page
+        alert("Login successful! Redirecting...");
+        // Replace with your navigation logic, e.g., window.location or react-router
+    } else {
+        alert("Invalid username or password. Try testuser/12345678.");
+    }
 };
 
+return (
+    <div>
+        <form onSubmit={handleSubmit}>
+            <div>
+                <label htmlFor="username">Username:</label>
+                <input
+                    id="username"
+                    type="text"
+                    value={username}
+                    onChange={e => setUsername(e.target.value)}
+                    required
+                />
+            </div>
+            <div>
+                <label htmlFor="password">Password:</label>
+                <input
+                    id="password"
+                    type="password"
+                    value={password}
+                    onChange={e => setPassword(e.target.value)}
+                    required
+                />
+            </div>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+);
+}
 export default Login;
