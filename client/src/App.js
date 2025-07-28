@@ -1,35 +1,27 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
-const Login = () => {
-  const navigate = useNavigate();
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+// Pages
+import Signup from './components/pages/Signup';
+import Login from './components/pages/Login';
+import Chat from './components/pages/Chat';
+import Settings from './components/pages/Settings';
+import Status from './components/pages/Status';
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    // Add your authentication logic here
-    // If login is successful:
-    navigate('/chat'); // Redirect to chat page
-  };
+// Global styles
+import './App.css';
 
+const App = () => {
   return (
-    <form onSubmit={handleLogin}>
-      <input
-        type="text"
-        placeholder="Username"
-        value={username}
-        onChange={e => setUsername(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={e => setPassword(e.target.value)}
-      />
-      <button type="submit">Login</button>
-    </form>
+    <div className="app-container">
+      <Routes>
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/chat" element={<Chat />} />
+        <Route path="/settings" element={<Settings />} />
+        <Route path="/status" element={<Status />} />
+      </Routes>
+    </div>
   );
 };
 
-export default Login;
+export default App;
