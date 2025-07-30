@@ -1,20 +1,14 @@
 {
-  "name": "server",
+  "name": "chat-app",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev" : "nodemon server.js"
+    "log": "echo \"📦 Running update log script...\"",
+    "client": "npm --prefix client run dev",
+    "server": "npm --prefix server run dev",
+    "dev": "concurrently \"npm run log\" \"npm run client\" \"npm run server\""
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "dependencies": {
-    "cors": "^2.8.5",
-    "dotenv": "^17.2.0",
-    "express": "^5.1.0",
-    "mongoose": "^8.16.4"
+  "devDependencies": {
+    "concurrently": "^9.2.0"
   }
 }

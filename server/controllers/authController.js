@@ -1,10 +1,6 @@
 const User = require('../models/User');
 const ErrorResponse = require('../utils/errorResponse');
 
-
-// @desc    Register user
-// @route   POST /api/auth/register
-// @access  Public
 exports.register = async (req, res, next) => {
   const { username, password } = req.body;
 
@@ -20,9 +16,6 @@ exports.register = async (req, res, next) => {
   }
 };
 
-// @desc    Login user
-// @route   POST /api/auth/login
-// @access  Public
 exports.login = async (req, res, next) => {
   const { username, password } = req.body;
 

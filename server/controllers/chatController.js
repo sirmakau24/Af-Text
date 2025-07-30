@@ -1,8 +1,5 @@
 const Message = require('../models/Message');
 
-// @desc    Get all messages
-// @route   GET /api/chat/messages
-// @access  Private
 exports.getMessages = async (req, res, next) => {
   try {
     const messages = await Message.find().populate('sender', 'username').sort('createdAt');
@@ -12,9 +9,6 @@ exports.getMessages = async (req, res, next) => {
   }
 };
 
-// @desc    Create message
-// @route   POST /api/chat/messages
-// @access  Private
 exports.createMessage = async (req, res, next) => {
   try {
     const { content } = req.body;
